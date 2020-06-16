@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:xwingcommander/star_wars_free_icons_icons.dart';
+import 'star_wars_free_icons_icons.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +11,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    // Should be a private class (or whatever it is in Dart) that decides whether we're Rebels or Empire
+    // In order to control whether colors are Black/Red or White/Blue, and Icons/Images.
+    // appScheme.main
+    // appScheme.primary
+    // appScheme.secondary
+    // appScheme.icon etc
+    final Color appScheme = Colors.black;
+
+    // FlutterStatusbarcolor.setStatusBarColor(appScheme);
+
     return MaterialApp(
         home: Scaffold(
       body: SafeArea(
@@ -28,6 +42,7 @@ class MyApp extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                Icon(StarWarsFreeIcons.star_wars_storm_trooper, color: Colors.blue,),
                 Text(
                   'Systems access',
                   style: TextStyle(
