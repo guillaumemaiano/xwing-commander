@@ -9,8 +9,152 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        home: Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.red,
+                  backgroundImage: NetworkImage(
+                      'https://starwarsblog.starwars.com/wp-content/uploads/2016/02/il_fullxfull.769667001_sdf0.jpg'),
+                ),
+              ],
+            ),
+            SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Text(
+                  'Systems access',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontFamily: 'Raleway',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic),
+                ),
+                Text(
+                  'Granted', // Granted / Refused / Offline
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontFamily: 'Raleway',
+                      fontSize: 18,
+                      fontStyle: FontStyle.italic),
+                ),
+              ],
+            ), // General Status
+            SizedBox(height: 25),
+            Container(
+              margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                border: Border.all(
+                  color: Colors.lightBlueAccent,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //crossAxisAlignment: CrossAxisAlignment.start,
+                children:
+                    // I need to learn how to extract subassemblies before this becomes unwieldly
+                    <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        'Hangar lighting',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Text(
+                        'Cockpit lights',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        'Engines',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        'Droid Feed',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontFamily: 'Raleway',
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ), // Column of Systems displayed
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text(
+                        'ON', // ON / OFF
+                        style: TextStyle(
+                          color: Colors.greenAccent,
+                          fontFamily: 'Raleway',
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      // Each column contains a 30-sized boxw to separate the hangar from the x-wing systems
+                      Text(
+                        'OFF', // ON / OFF
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontFamily: 'Raleway',
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      Text(
+                        'OFF', // ON / OFF
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontFamily: 'Raleway',
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      Text(
+                        'OFF', // ON / OFF
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontFamily: 'Raleway',
+                            fontSize: 16,
+                            fontStyle: FontStyle.italic),
+                      ),
+                    ],
+                  ), // Column of status displayed relative to the system in previous column
+                  // Yes, indeed, this should not be hand-built
+                ],
+              ), // Systems Status Display
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Colors.black,
+    )
+        // https://dev.to/mightytechno/render-svg-in-flutter-app-4kan
 // https://vignette.wikia.nocookie.net/starwars/images/e/ea/Resistance_starbird.svg/ // revision/latest/scale-to-width-down/118?cb=20150913201739
-    );
+        );
   }
 }
 
