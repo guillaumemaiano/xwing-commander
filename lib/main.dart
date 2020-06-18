@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
               ],
             ),
             SizedBox(height: 25),
-            Row(
+        Expanded( child:
+        Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 Icon(StarWarsFreeIcons.star_wars_storm_trooper, color: Colors.blue,),
@@ -61,8 +62,10 @@ class MyApp extends StatelessWidget {
                       fontStyle: FontStyle.italic),
                 ),
               ],
-            ), // General Status
+            ),
+        ),// General Status
             SizedBox(height: 25),
+        Expanded( child:
             Container(
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               decoration: BoxDecoration(
@@ -162,6 +165,7 @@ class MyApp extends StatelessWidget {
                 ],
               ), // Systems Status Display
             ),
+        ),
           ],
         ),
       ),
