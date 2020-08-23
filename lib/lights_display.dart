@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+
 class LightsDisplay extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _LightsDisplayState();
 }
 
-class _LightsDisplayState extends State<StatefulWidget>{
+class _LightsDisplayState extends State<StatefulWidget> {
+  String _hangar_light = "ON";
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       //crossAxisAlignment: CrossAxisAlignment.start,
       children:
-      // I need to learn how to extract subassemblies before this becomes unwieldly
-      <Widget>[
+          // I need to learn how to extract subassemblies before this becomes unwieldly
+          <Widget>[
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -51,19 +54,22 @@ class _LightsDisplayState extends State<StatefulWidget>{
               ),
             ),
           ],
-        ), // Column of Systems displayed
+        ),
+        // Column of Systems displayed
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text(
-              'ON', // ON / OFF
-              style: TextStyle(
-                color: Colors.greenAccent,
-                fontFamily: 'Raleway',
-                fontSize: 16,
-              ),
-            ),
+            FlatButton(
+                onPressed: _powerClicked,
+                child: Text(
+                 _hangar_light, // ON / OFF
+                  style: TextStyle(
+                    color: Colors.greenAccent,
+                    fontFamily: 'Raleway',
+                    fontSize: 16,
+                  ),
+                )),
             SizedBox(height: 30),
             // Each column contains a 30-sized box to separate the hangar from the x-wing systems
             Text(
@@ -91,9 +97,16 @@ class _LightsDisplayState extends State<StatefulWidget>{
                   fontStyle: FontStyle.italic),
             ),
           ],
-        ), // Column of status displayed relative to the system in previous column
-        // Yes, indeed, this should not be hand-built
+        ),
+        // Column of status displayed relative to the system in previous column
+        // Yes, indeed, this should not be hand-built. It's just a learn-by-code thing though.
       ],
     ); // Systems Status Display
+  }
+
+  void _powerClicked() {
+    setState(() {
+      _hangar_light = (_hangar_light == "ON") ? "OFF" : "ON";
+    });
   }
 }
